@@ -1,0 +1,538 @@
+<h1>Coolruby Available Functions</h1>This document has been automatically generated. It explains the available ruby functions in your coolruby environment: their usage, their utility. You can click on one of the categories below to get specific help on one topic. If you are in CoolWatcher, you can type "help" in the command line to get on-the-fly help; you can also press the tab key to get a completion list of the available functions and variables.<h1>Categories</h1><li><a href='#CoolHost'>CoolHost</a></li>
+<li><a href='#CoolWatcher'>CoolWatcher</a></li>
+<li><a href='#breakpoint'>breakpoint</a></li>
+<li><a href='#chip'>chip</a></li>
+<li><a href='#com'>com</a></li>
+<li><a href='#disassembly'>disassembly</a></li>
+<li><a href='#events'>events</a></li>
+<li><a href='#fastpf'>fastpf</a></li>
+<li><a href='#ramrun'>ramrun</a></li>
+<li><a href='#reading'>reading</a></li>
+<li><a href='#targetxtor'>targetxtor</a></li>
+<li><a href='#writing'>writing</a></li>
+<hr>
+<a name='CoolHost'><h1>CoolHost</h1></a>
+<li><a href='#CHST_TimeOutPopEvent'>CHST_TimeOutPopEvent</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='CHST_TimeOutPopEvent'><td><font color=red>event</font> <b>CHST_TimeOutPopEvent</b>&nbsp;&nbsp;&nbsp;(<font color=blue>handle,timeout_s</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Pop an event from the event queue, or wait for one until 'timeout' (s) is reached. Raises NoEventError if no events could be popped.</font></td></tr>
+</table>
+<hr>
+<a name='CoolWatcher'><h1>CoolWatcher</h1></a>
+<li><a href='#cwAddCommandHistoryEntry'>cwAddCommandHistoryEntry</a></li>
+<li><a href='#cwAddMenuCommand'>cwAddMenuCommand</a></li>
+<li><a href='#cwAddMenuSeparator'>cwAddMenuSeparator</a></li>
+<li><a href='#cwAddRubyWatch'>cwAddRubyWatch</a></li>
+<li><a href='#cwAddScriptButton'>cwAddScriptButton</a></li>
+<li><a href='#cwAddToggleButton'>cwAddToggleButton</a></li>
+<li><a href='#cwAddWatch'>cwAddWatch</a></li>
+<li><a href='#cwBuildModem2GGui'>cwBuildModem2GGui</a></li>
+<li><a href='#cwBuildStdGui'>cwBuildStdGui</a></li>
+<li><a href='#cwBuildSvnCheckerGui'>cwBuildSvnCheckerGui</a></li>
+<li><a href='#cwClear'>cwClear</a></li>
+<li><a href='#cwClearWatches'>cwClearWatches</a></li>
+<li><a href='#cwDefaultOpen'>cwDefaultOpen</a></li>
+<li><a href='#cwDumpWatches'>cwDumpWatches</a></li>
+<li><a href='#cwGetCommandHistory'>cwGetCommandHistory</a></li>
+<li><a href='#cwGetOpenFileName'>cwGetOpenFileName</a></li>
+<li><a href='#cwGetProfileEntry'>cwGetProfileEntry</a></li>
+<li><a href='#cwGetSaveFileName'>cwGetSaveFileName</a></li>
+<li><a href='#cwHideGuiElement'>cwHideGuiElement</a></li>
+<li><a href='#cwInsertWatchesFromStringArray'>cwInsertWatchesFromStringArray</a></li>
+<li><a href='#cwIsButtonToggled'>cwIsButtonToggled</a></li>
+<li><a href='#cwLoadWatches'>cwLoadWatches</a></li>
+<li><a href='#cwQuit'>cwQuit</a></li>
+<li><a href='#cwRefreshWatches'>cwRefreshWatches</a></li>
+<li><a href='#cwSaveWatches'>cwSaveWatches</a></li>
+<li><a href='#cwSetProfileEntry'>cwSetProfileEntry</a></li>
+<li><a href='#cwSetProgress'>cwSetProgress</a></li>
+<li><a href='#cwSetTitle'>cwSetTitle</a></li>
+<li><a href='#cwSetToolbarOrientation'>cwSetToolbarOrientation</a></li>
+<li><a href='#cwShowGuiElement'>cwShowGuiElement</a></li>
+<li><a href='#modem2GHandleEvents'>modem2GHandleEvents</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='cwAddCommandHistoryEntry'><td><font color=red>command_string</font> <b>cwAddCommandHistoryEntry</b>&nbsp;&nbsp;&nbsp;(<font color=blue>command_string</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds the command 'command_string' to the command history.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwAddMenuCommand'><td><font color=red></font> <b>cwAddMenuCommand</b>&nbsp;&nbsp;&nbsp;(<font color=blue>menu_name_string, item_name_string, code_string, accelerator</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Creates a menu entry in the menus of CoolWatcher. If menu_name_string does not correspond to any menu, it is created. The entry has item_name_string as name. When activated, the menu entry executes code_string. An accelerator can be attached to this entry. See the Qt documentation for a list of keyboard keys that can be used to define accelerators.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwAddMenuSeparator'><td><font color=red></font> <b>cwAddMenuSeparator</b>&nbsp;&nbsp;&nbsp;(<font color=blue>menu_name_string</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds a separator in the menu called 'menu_name_string'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwAddRubyWatch'><td><font color=red></font> <b>cwAddRubyWatch</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_ruby_expression, str_label</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds a watch on the ruby_expression (with label 'str_label')</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwAddScriptButton'><td><font color=red></font> <b>cwAddScriptButton</b>&nbsp;&nbsp;&nbsp;(<font color=blue>toolbarname_string, code_string, pixmap_string_array, tooltip_string</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds a button to the toolbar 'toolbarname_string' (which is created if not exists). When the button is pressed, 'code_string' is executed by the Ruby interpreter. The default pixmap can be replaced by giving an unempty 'pixmap_string_array' which must be in the XPM format (see XPM format documentation</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwAddToggleButton'><td><font color=red></font> <b>cwAddToggleButton</b>&nbsp;&nbsp;&nbsp;(<font color=blue>toolbarname_string, button_name_string, toggled_at_start_bool, show_button_name_bool, pixmap_string_array, tooltip_string</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds a toggle button to the toolbar 'toolbarname_string' (which is created if not exists). The button is created in 'on' state if 'toggled_at_start_bool' is true. The button name is shown beside the button if 'show_button_name_bool' is true. The default pixmap can be replaced by giving an unempty 'pixmap_string_array' which must be in the XPM format (see XPM format documentation</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwAddWatch'><td><font color=red></font> <b>cwAddWatch</b>&nbsp;&nbsp;&nbsp;(<font color=blue>chip_or_soft_variable</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds a watch on chip_or_soft_variable</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwBuildModem2GGui'><td><font color=red></font> <b>cwBuildModem2GGui</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Setup the Modem2G 
+        interface for CoolWatcher.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwBuildStdGui'><td><font color=red></font> <b>cwBuildStdGui</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Setup the standard 
+        interface for CoolWatcher.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwBuildSvnCheckerGui'><td><font color=red></font> <b>cwBuildSvnCheckerGui</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Setup the SVN Checker 
+        interface for CoolWatcher.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwClear'><td><font color=red></font> <b>cwClear</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Clears CoolWatcher script output</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwClearWatches'><td><font color=red></font> <b>cwClearWatches</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Clears CoolWatcher watch table</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwDefaultOpen'><td><font color=red></font> <b>cwDefaultOpen</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Ask which COM port to open
+        and save it as default one.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwDumpWatches'><td><font color=red>str</font> <b>cwDumpWatches</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns a string representation of the current watches with their values.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwGetCommandHistory'><td><font color=red>string_array</font> <b>cwGetCommandHistory</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Gets the table containing the complete command history.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwGetOpenFileName'><td><font color=red>str</font> <b>cwGetOpenFileName</b>&nbsp;&nbsp;&nbsp;(<font color=blue>display_string, path_string, filter_string</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Opens a dialog box asking for a file to load, with 'display_string' as dialog title, path_string as default path from where to load, and filter_string as file format filter (e.g. '(*.bmp;*.jpg)')</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwGetProfileEntry'><td><font color=red>str</font> <b>cwGetProfileEntry</b>&nbsp;&nbsp;&nbsp;(<font color=blue>profile_entry_string, default_value</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Gets the entry value of the profile entry 'profile_entry_string'. Returns default_value if the profile_entry_string does not exist in the current profile.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwGetSaveFileName'><td><font color=red>str</font> <b>cwGetSaveFileName</b>&nbsp;&nbsp;&nbsp;(<font color=blue>display_string, path_string, filter_string</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Opens a dialog box asking for a file to save, with 'display_string' as dialog title, path_string as default path where to save, and filter_string as file format filter (e.g. '(*.bmp;*.jpg)')</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwHideGuiElement'><td><font color=red></font> <b>cwHideGuiElement</b>&nbsp;&nbsp;&nbsp;(<font color=blue>gui_element</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Hides the specified GUI Widget of CoolWatcher. gui_element can be one of the following : 	WatchArea, ModuleLibrary, TypedefLibrary, CommandLine, DebugArea, DescriptionArea, OutputArea, or DrawArea</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwInsertWatchesFromStringArray'><td><font color=red></font> <b>cwInsertWatchesFromStringArray</b>&nbsp;&nbsp;&nbsp;(<font color=blue>array_of_string_of_watches</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds a list of watches from array_of_string_of_watches</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwIsButtonToggled'><td><font color=red>bool</font> <b>cwIsButtonToggled</b>&nbsp;&nbsp;&nbsp;(<font color=blue>button_name_string</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns true if the button is on. Otherwise, returns false.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwLoadWatches'><td><font color=red></font> <b>cwLoadWatches</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Load the list of watches from a file to the current Watches window.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwQuit'><td><font color=red></font> <b>cwQuit</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Quits CoolWatcher.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwRefreshWatches'><td><font color=red></font> <b>cwRefreshWatches</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Toggles the refresh of the watches.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwSaveWatches'><td><font color=red></font> <b>cwSaveWatches</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Save the list of watches in the current Watches window to a file.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwSetProfileEntry'><td><font color=red></font> <b>cwSetProfileEntry</b>&nbsp;&nbsp;&nbsp;(<font color=blue>profile_entry_string, value</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds an entry with 'profile_entry_string' as name and 'value' as value in the current loaded profile. Useful if various profiles use generic script which must load custom parameters.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwSetProgress'><td><font color=red></font> <b>cwSetProgress</b>&nbsp;&nbsp;&nbsp;(<font color=blue>num_steps, num_total, format="%p%"</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Sets progress bar to num_steps over num_total. Shows it if num_steps is in the range 0 to num_total, else, hide it.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwSetTitle'><td><font color=red></font> <b>cwSetTitle</b>&nbsp;&nbsp;&nbsp;(<font color=blue>string_title</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Sets the caption of the title bar CoolWatcher's main window.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwSetToolbarOrientation'><td><font color=red></font> <b>cwSetToolbarOrientation</b>&nbsp;&nbsp;&nbsp;(<font color=blue>toolbarname_string, orientation</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Change the orientation of the toolbar 'toolbarname_string'. Orientation can be one of the following constants : DockLeft, DockRight, DockTop, or DockBottom</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwShowGuiElement'><td><font color=red></font> <b>cwShowGuiElement</b>&nbsp;&nbsp;&nbsp;(<font color=blue>gui_element</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Shows the specified GUI Widget of CoolWatcher. gui_element can be one of the following : 	WatchArea, ModuleLibrary, TypedefLibrary, CommandLine, DebugArea, DescriptionArea, OutputArea, or DrawArea</font></td></tr>
+<tr bgcolor=#d0d0d0 id='modem2GHandleEvents'><td><font color=red></font> <b>modem2GHandleEvents</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Add some event handlers for Modem2G.</font></td></tr>
+</table>
+<hr>
+<a name='breakpoint'><h1>breakpoint</h1></a>
+<li><a href='#bcbp'>bcbp</a></li>
+<li><a href='#bfbp'>bfbp</a></li>
+<li><a href='#bgdb'>bgdb</a></li>
+<li><a href='#brbp'>brbp</a></li>
+<li><a href='#bsbp'>bsbp</a></li>
+<li><a href='#xcbp'>xcbp</a></li>
+<li><a href='#xfbp'>xfbp</a></li>
+<li><a href='#xgdb'>xgdb</a></li>
+<li><a href='#xrbp'>xrbp</a></li>
+<li><a href='#xsbp'>xsbp</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='bcbp'><td><font color=red></font> <b>bcbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Check BCPU breakpoint.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='bfbp'><td><font color=red></font> <b>bfbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Force BCPU breakpoint.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='bgdb'><td><font color=red></font> <b>bgdb</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Set BCPU Debug IRQ.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='brbp'><td><font color=red></font> <b>brbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Release BCPU breakpoint (forced only).</font></td></tr>
+<tr bgcolor=#d0d0d0 id='bsbp'><td><font color=red></font> <b>bsbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue>mode, address</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Set a     breakpoint of type 'mode' at 'address' for the BCPU</font></td></tr>
+<tr bgcolor=#d0d0d0 id='xcbp'><td><font color=red></font> <b>xcbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Check XCPU breakpoint.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='xfbp'><td><font color=red></font> <b>xfbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Force XCPU breakpoint.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='xgdb'><td><font color=red></font> <b>xgdb</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Set XCPU Debug IRQ.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='xrbp'><td><font color=red></font> <b>xrbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Release XCPU breakpoint (forced only).</font></td></tr>
+<tr bgcolor=#d0d0d0 id='xsbp'><td><font color=red></font> <b>xsbp</b>&nbsp;&nbsp;&nbsp;(<font color=blue>mode, address</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Set a     breakpoint of type 'mode' at 'address' for the XCPU</font></td></tr>
+</table>
+<hr>
+<a name='chip'><h1>chip</h1></a>
+<li><a href='#busreset'>busreset</a></li>
+<li><a href='#calib'>calib</a></li>
+<li><a href='#checkForGreenstoneAhbMasterBug'>checkForGreenstoneAhbMasterBug</a></li>
+<li><a href='#chipLastResetTime'>chipLastResetTime</a></li>
+<li><a href='#crestart'>crestart</a></li>
+<li><a href='#cunfreeze'>cunfreeze</a></li>
+<li><a href='#date'>date</a></li>
+<li><a href='#dbgrst'>dbgrst</a></li>
+<li><a href='#diag'>diag</a></li>
+<li><a href='#diaga'>diaga</a></li>
+<li><a href='#diagb'>diagb</a></li>
+<li><a href='#diagw'>diagw</a></li>
+<li><a href='#exlEnable'>exlEnable</a></li>
+<li><a href='#flasherase'>flasherase</a></li>
+<li><a href='#flashgetid'>flashgetid</a></li>
+<li><a href='#flashgetstatus'>flashgetstatus</a></li>
+<li><a href='#flashid'>flashid</a></li>
+<li><a href='#flashsetregadd'>flashsetregadd</a></li>
+<li><a href='#flashunlock'>flashunlock</a></li>
+<li><a href='#flashwritestatus'>flashwritestatus</a></li>
+<li><a href='#freq'>freq</a></li>
+<li><a href='#gdbEnable'>gdbEnable</a></li>
+<li><a href='#gdbSwitchContext'>gdbSwitchContext</a></li>
+<li><a href='#getAlarm'>getAlarm</a></li>
+<li><a href='#getDbgPortConfig'>getDbgPortConfig</a></li>
+<li><a href='#hver'>hver</a></li>
+<li><a href='#inCache'>inCache</a></li>
+<li><a href='#lowpower'>lowpower</a></li>
+<li><a href='#lpsForceNoSleep'>lpsForceNoSleep</a></li>
+<li><a href='#noxfbpreset'>noxfbpreset</a></li>
+<li><a href='#pagespy'>pagespy</a></li>
+<li><a href='#pagespycheck'>pagespycheck</a></li>
+<li><a href='#restart'>restart</a></li>
+<li><a href='#rst'>rst</a></li>
+<li><a href='#setAnAlarm'>setAnAlarm</a></li>
+<li><a href='#sver'>sver</a></li>
+<li><a href='#sxsIdleHookEnable'>sxsIdleHookEnable</a></li>
+<li><a href='#sxsRun'>sxsRun</a></li>
+<li><a href='#sxsRunRetVal'>sxsRunRetVal</a></li>
+<li><a href='#sxsTaskList'>sxsTaskList</a></li>
+<li><a href='#testram'>testram</a></li>
+<li><a href='#traceSwitchPort'>traceSwitchPort</a></li>
+<li><a href='#turnoff'>turnoff</a></li>
+<li><a href='#unfreeze'>unfreeze</a></li>
+<li><a href='#xfbpreset'>xfbpreset</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='busreset'><td><font color=red></font> <b>busreset</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reset the whole chip but halt XCPU - the memory content survives.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='calib'><td><font color=red></font> <b>calib</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Tells whether the phone has been calibrated.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='checkForGreenstoneAhbMasterBug'><td><font color=red></font> <b>checkForGreenstoneAhbMasterBug</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Tells whether the chip crashed because of an AHB Master bug.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='chipLastResetTime'><td><font color=red></font> <b>chipLastResetTime</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the last time at which the reset event has been detected.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='crestart'><td><font color=red></font> <b>crestart</b>&nbsp;&nbsp;&nbsp;(<font color=blue>connection=$CURRENTCONNECTION,bool_xcpufreeze=false,bool_powerStayOn=false,bool_reEnableUart=true,bool_intRegOnly=false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Same as restart except that it takes a connection as an additional parameter, in order to perform a reset on whatever connection you want.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cunfreeze'><td><font color=red></font> <b>cunfreeze</b>&nbsp;&nbsp;&nbsp;(<font color=blue>connection=$CURRENTCONNECTION</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Same as 'unfreeze' except that you can chose the connection on which to perform the unfreeze.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='date'><td><font color=red></font> <b>date</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Display the time and date of the phone in a human readable format. Tell when the calendar has never been programmed.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='dbgrst'><td><font color=red></font> <b>dbgrst</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Restarts the chip by accessing debug host internal registers only. Xcpu will be unfrozen, the power will be kept on during the restart, and the trace Uart will be reenabled after restart.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='diag'><td><font color=red></font> <b>diag</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the status of the system CPU.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='diaga'><td><font color=red></font> <b>diaga</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the status of the ACPU.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='diagb'><td><font color=red></font> <b>diagb</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the status of the BCPU.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='diagw'><td><font color=red></font> <b>diagw</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the status of the WCPU.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='exlEnable'><td><font color=red></font> <b>exlEnable</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This function enable             EXL logging with a useful default configuration, 
+            that is record all jump and branch and IRQ on 
+            the XCPU. To change this, use directly the appropriate
+            registers</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flasherase'><td><font color=red></font> <b>flasherase</b>&nbsp;&nbsp;&nbsp;(<font color=blue>sectorid</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;0 means erase the first sector,and 1 means earse all flash.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashgetid'><td><font color=red></font> <b>flashgetid</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;get flash id</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashgetstatus'><td><font color=red></font> <b>flashgetstatus</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;get the   flash status register.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashid'><td><font color=red></font> <b>flashid</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Attempts to read the Autoselect fields in the flash to identify the part number.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashsetregadd'><td><font color=red></font> <b>flashsetregadd</b>&nbsp;&nbsp;&nbsp;(<font color=blue>chip_stye</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;8955 = 1 </font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashunlock'><td><font color=red></font> <b>flashunlock</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;don't protected flash area</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashwritestatus'><td><font color=red></font> <b>flashwritestatus</b>&nbsp;&nbsp;&nbsp;(<font color=blue>high_byte,low_byte</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;lock flash just to write BP0-BP4 of flash status regiter[0-15]</font></td></tr>
+<tr bgcolor=#d0d0d0 id='freq'><td><font color=red></font> <b>freq</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the current system frequencies.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='gdbEnable'><td><font color=red></font> <b>gdbEnable</b>&nbsp;&nbsp;&nbsp;(<font color=blue>enable = 1</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Enable GDB.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='gdbSwitchContext'><td><font color=red></font> <b>gdbSwitchContext</b>&nbsp;&nbsp;&nbsp;(<font color=blue>id, flag=0, sp=0</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Switch the context in GDB (for backtrace, etc).<br>
+            id: Task ID or job ID<br>
+            flag: 0 - using task ID,<br>
+                  1 - using job ID,<br>
+                  2 - using context before current IRQ,<br>
+                  3 - using task or IRQ stack pointer,<br>
+                  4 - using job stack pointer,<br>
+            sp: stack pointer to show the context</font></td></tr>
+<tr bgcolor=#d0d0d0 id='getAlarm'><td><font color=red></font> <b>getAlarm</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Check if an alarm has been reached.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='getDbgPortConfig'><td><font color=red></font> <b>getDbgPortConfig</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the configuration of the debug port.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='hver'><td><font color=red></font> <b>hver</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the version of the hardware binary of the FPGA. It also says if the chip is a FPGA or a FPGA_USB.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='inCache'><td><font color=red>inCacheAddress</font> <b>inCache</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr, cache</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This function read the cpu tag             and check if the wanted address is in the cache,
+            if so it return the address of the corresponding data in the cache.
+            <br/>There is two 1 parameter shortcuts as folowing exemples shows:
+            <br/> *  0x80001570.inCache($XCPU_IDATA).r : this checks in the XCPU Instruction cache is the address 0x80001570 is in cache, and if found, it reads the data from the cache.
+            <br/> * $BCPU_DDATA.inCache(0x80c01afc).r : this checks in the BCPU Data cache is the address 0x80c01afc is in cache, and if found, it reads the data from the cache.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='lowpower'><td><font color=red></font> <b>lowpower</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Check whether the phone is in low power or not.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='lpsForceNoSleep'><td><font color=red></font> <b>lpsForceNoSleep</b>&nbsp;&nbsp;&nbsp;(<font color=blue>enable = 1</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Force the chip (HAL-LPS module) not to sleep.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='noxfbpreset'><td><font color=red></font> <b>noxfbpreset</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Cancel XCPU breakpoint at hard reset boot up time.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='pagespy'><td><font color=red></font> <b>pagespy</b>&nbsp;&nbsp;&nbsp;(<font color=blue>start_add, end_add_excluded, on_writes = 1, on_reads = 0</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Set a page spy (0) from the address start_add (included) to the address end_add_excluded (excluded). Use the command 'pagespycheck' to check if this page has been hit.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='pagespycheck'><td><font color=red></font> <b>pagespycheck</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Check if the page spy (0) set by the command 'pagespy' has been hit.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='restart'><td><font color=red></font> <b>restart</b>&nbsp;&nbsp;&nbsp;(<font color=blue>bool_xcpufreeze=false,bool_powerStayOn=false,bool_reEnableUart=true,bool_intRegOnly=false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Restarts the chip. If 'bool_xcpufreeze' is true, it is frozen until a call to 'unfreeze'.
+	If 'bool_powerStayOn' is true, the power is kept on during the restart. If 'bool_reEnableUart' is true, the trace Uart will be reenabled after restart. If 'bool_intRegOnly' is true, only debug host internal registers will be accessed during the restart.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='rst'><td><font color=red></font> <b>rst</b>&nbsp;&nbsp;&nbsp;(<font color=blue>bool_xcpufreeze=false,bool_powerStayOn=false,bool_reEnableUart=true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Restarts the chip. If 'bool_xcpufreeze' is true, it is frozen until a call to 'unfreeze'.
+	If 'bool_powerStayOn' is true, the power is kept on during the restart.  If 'bool_reEnableUart' is true, the trace Uart will be reenabled after restart.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='setAnAlarm'><td><font color=red></font> <b>setAnAlarm</b>&nbsp;&nbsp;&nbsp;(<font color=blue>inNSec</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reset the calendar to zero, clear the current alarm status and program an alarm at inNSec seconds.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='sver'><td><font color=red></font> <b>sver</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Prints the version information of the software modules.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='sxsIdleHookEnable'><td><font color=red></font> <b>sxsIdleHookEnable</b>&nbsp;&nbsp;&nbsp;(<font color=blue>enable = 1</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Enable or disable SXS idle hook functions to debug XCV, PMD, ABB and FM.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='sxsRun'><td><font color=red></font> <b>sxsRun</b>&nbsp;&nbsp;&nbsp;(<font color=blue>functionAddress, param0=0, param1=0, param2=0, param3=0, connection=$CURRENTCONNECTION</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Execute a function on the target (RPC) via SXS RMC, with 4 maximum number of parameters and no return value.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='sxsRunRetVal'><td><font color=red></font> <b>sxsRunRetVal</b>&nbsp;&nbsp;&nbsp;(<font color=blue>functionAddress, param0=0, param1=0, param2=0, param3=0, connection=$CURRENTCONNECTION</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Execute a function on the target (RPC) via SXS RMC, with 4 maximum number of parameters and return value.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='sxsTaskList'><td><font color=red></font> <b>sxsTaskList</b>&nbsp;&nbsp;&nbsp;(<font color=blue>connection=$CURRENTCONNECTION</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;List all SX task name.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='testram'><td><font color=red></font> <b>testram</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;test ram.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='traceSwitchPort'><td><font color=red></font> <b>traceSwitchPort</b>&nbsp;&nbsp;&nbsp;(<font color=blue>port = -1</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Switch current trace port. 0=host, 1=usb, 2=ap, -1=get_current_port</font></td></tr>
+<tr bgcolor=#d0d0d0 id='turnoff'><td><font color=red></font> <b>turnoff</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Turn off the phone (set the Wakeup line to low).</font></td></tr>
+<tr bgcolor=#d0d0d0 id='unfreeze'><td><font color=red></font> <b>unfreeze</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Unfreezes the chip.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='xfbpreset'><td><font color=red></font> <b>xfbpreset</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Force XCPU breakpoint at hard reset boot up time (one-time only).</font></td></tr>
+</table>
+<hr>
+<a name='com'><h1>com</h1></a>
+<li><a href='#cbreak'>cbreak</a></li>
+<li><a href='#cclose'>cclose</a></li>
+<li><a href='#ckill'>ckill</a></li>
+<li><a href='#copen'>copen</a></li>
+<li><a href='#creconnect'>creconnect</a></li>
+<li><a href='#jopen'>jopen</a></li>
+<li><a href='#jtopen'>jtopen</a></li>
+<li><a href='#reop'>reop</a></li>
+<li><a href='#showAllEvents'>showAllEvents</a></li>
+<li><a href='#uopen'>uopen</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='cbreak'><td><font color=red>$CURRENTCONNECTION</font> <b>cbreak</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Send a serial break on the current com port.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cclose'><td><font color=red></font> <b>cclose</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Closes the socket to the CoolHost corresponding to $CURRENTCONNECTION.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='ckill'><td><font color=red>$CURRENTCONNECTION</font> <b>ckill</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Quits the CoolHost program handling the current com port.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='copen'><td><font color=red>$CURRENTCONNECTION</font> <b>copen</b>&nbsp;&nbsp;&nbsp;(<font color=blue>NUM,BR=BR_AUTOMATIC,abortOnError=true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Opens a CoolHost or a socket to a CoolHost on the COM port 'NUM' and with the baudrate 'BR'. Returns the constructed connection. Caution : if successful, this function modifies $CURRENTCONNECTION.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='creconnect'><td><font color=red></font> <b>creconnect</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reconnect current com port.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='jopen'><td><font color=red>$CURRENTCONNECTION</font> <b>jopen</b>&nbsp;&nbsp;&nbsp;(<font color=blue>NUM,BR=115200,abortOnError=true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Opens a jadeCoolHost or a socket to a jadeCoolHost on the COM port 'NUM' and with the baudrate 'BR'. Returns the constructed connection. Caution : if successful, this function modifies $CURRENTCONNECTION.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='jtopen'><td><font color=red>$TRACEPLUGCONNECTION</font> <b>jtopen</b>&nbsp;&nbsp;&nbsp;(<font color=blue>NUM,BR=460800</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Opens a coolhost for managing traces for jade.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='reop'><td><font color=red>$CURRENTCONNECTION</font> <b>reop</b>&nbsp;&nbsp;&nbsp;(<font color=blue>abortOnError=true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Re-opens the current com port.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='showAllEvents'><td><font color=red></font> <b>showAllEvents</b>&nbsp;&nbsp;&nbsp;(<font color=blue>enable=1</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Print a event once it is popped out.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='uopen'><td><font color=red>$CURRENTCONNECTION</font> <b>uopen</b>&nbsp;&nbsp;&nbsp;(<font color=blue>abortOnError=true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Opens a CoolHost or a socket to a CoolHost on the USB (TODO : this function needs more parameters). Returns the constructed connection. Caution : if successful, this function modifies $CURRENTCONNECTION.</font></td></tr>
+</table>
+<hr>
+<a name='disassembly'><h1>disassembly</h1></a>
+<li><a href='#Integer.dis'>Integer.dis</a></li>
+<li><a href='#Integer.functionAt'>Integer.functionAt</a></li>
+<li><a href='#String.address'>String.address</a></li>
+<li><a href='#bdis'>bdis</a></li>
+<li><a href='#bwhere'>bwhere</a></li>
+<li><a href='#cwLoadDisassembly'>cwLoadDisassembly</a></li>
+<li><a href='#cwUnloadDisassembly'>cwUnloadDisassembly</a></li>
+<li><a href='#dis'>dis</a></li>
+<li><a href='#where'>where</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='Integer.dis'><td><font color=red></font> <b>Integer.dis</b>&nbsp;&nbsp;&nbsp;(<font color=blue>scope=8</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Prints the disassembly code around the Integer value.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.functionAt'><td><font color=red></font> <b>Integer.functionAt</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the function name of the code existing at Integer.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='String.address'><td><font color=red></font> <b>String.address</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Returns the address of the symbol represented by the String.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='bdis'><td><font color=red></font> <b>bdis</b>&nbsp;&nbsp;&nbsp;(<font color=blue>scope=8</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;BCPU version of 'dis'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='bwhere'><td><font color=red></font> <b>bwhere</b>&nbsp;&nbsp;&nbsp;(<font color=blue>scope=8</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;BCPU version of 'where'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwLoadDisassembly'><td><font color=red></font> <b>cwLoadDisassembly</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Load the disassembled code from a .dis file. If nil is given, the current disassembly is unloaded. The disassembly is used to retrieve the name of a function out of a word of code's address.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='cwUnloadDisassembly'><td><font color=red></font> <b>cwUnloadDisassembly</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Unload the current disassembled code. Keep track of it, in case we should reload it in the futur (during a fastpf, for instance).</font></td></tr>
+<tr bgcolor=#d0d0d0 id='dis'><td><font color=red></font> <b>dis</b>&nbsp;&nbsp;&nbsp;(<font color=blue>scope=8</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Prints disassembly of the code around the XCPU execution pointer.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='where'><td><font color=red></font> <b>where</b>&nbsp;&nbsp;&nbsp;(<font color=blue>scope=8</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;See 'dis' function.</font></td></tr>
+</table>
+<hr>
+<a name='events'><h1>events</h1></a>
+<li><a href='#addEventSnifferCallBack'>addEventSnifferCallBack</a></li>
+<li><a href='#dontSniffEvents'>dontSniffEvents</a></li>
+<li><a href='#flushEvents'>flushEvents</a></li>
+<li><a href='#removeEventSnifferCallBack'>removeEventSnifferCallBack</a></li>
+<li><a href='#sniffEvents'>sniffEvents</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='addEventSnifferCallBack'><td><font color=red></font> <b>addEventSnifferCallBack</b>&nbsp;&nbsp;&nbsp;(<font color=blue>event,lambdaBlock</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Adds a callback to the eventSniffer for the specific event         'event'. The lambdaBlock syntax is: *lambda { myRubyCode }* .</font></td></tr>
+<tr bgcolor=#d0d0d0 id='dontSniffEvents'><td><font color=red></font> <b>dontSniffEvents</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This function stops the     	         events sniffer in CoolWatcher.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flushEvents'><td><font color=red></font> <b>flushEvents</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This function remove all the                 events in the event queue of the $EVENTSNIFFERCONNECTION.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='removeEventSnifferCallBack'><td><font color=red></font> <b>removeEventSnifferCallBack</b>&nbsp;&nbsp;&nbsp;(<font color=blue>event</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Removes the callback of the eventSniffer installed         on the specific event 'event'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='sniffEvents'><td><font color=red></font> <b>sniffEvents</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This function displays                 events received on the 'comport' COM port live in CoolWatcher.</font></td></tr>
+</table>
+<hr>
+<a name='fastpf'><h1>fastpf</h1></a>
+<li><a href='#fastSectorEraser'>fastSectorEraser</a></li>
+<li><a href='#fastpf'>fastpf</a></li>
+<li><a href='#fastpfVerify'>fastpfVerify</a></li>
+<li><a href='#fastpfXfer'>fastpfXfer</a></li>
+<li><a href='#setFastpfIntensiveVerify'>setFastpfIntensiveVerify</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='fastSectorEraser'><td><font color=red></font> <b>fastSectorEraser</b>&nbsp;&nbsp;&nbsp;(<font color=blue>flash_programmer_filename, sector_list, disable_event_sniffer = true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Do a fastpf to erase all the sectors whose address present in the integer array 'sector_list'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='fastpf'><td><font color=red></font> <b>fastpf</b>&nbsp;&nbsp;&nbsp;(<font color=blue>flash_programmer_filename, writeBootsector=FastPf::FULLFASTPF, verify=true, disable_event_sniffer=true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Do a fastpf from files. 'flash_programmer_filename' is the path of the compiled flash programmer (compiled as a ramrun for the particular flash type you are going to use). 'lod_filename' is the path to the compiled source code to be 'fastpfed'. Possible values for writeBootSector are FastPf::NOBOOTSECTORFASTPF, FastPf::BOOTSECTORFASTPF, and FastPf::FULLFASTPF.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='fastpfVerify'><td><font color=red></font> <b>fastpfVerify</b>&nbsp;&nbsp;&nbsp;(<font color=blue>flash_programmer_filename, lod_filename, writeBootsector=FastPf::FULLFASTPF, indepth=true, disable_event_sniffer = true</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Do a fastpf verify with a specified flash programmer and lod file.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='fastpfXfer'><td><font color=red></font> <b>fastpfXfer</b>&nbsp;&nbsp;&nbsp;(<font color=blue>connection, flash_programmer_filename, lod_filename, writeBootSector, verify</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Low level fastpf, its purpose is to be integrated into script, and not launched in an interpreter. The 'connection' parameter should be a CHHostConnection or any heir of this class (see 'rbbase.rb'). 'flashProgrammerPackets' are LODPackets, and should be loaded with the 'LOD_Read()' function, as so as 'codeFilePackets'. They are respectively ruby objects representing the LOD files of the flashprogrammer, and the code to be fastpfed. If writeBootSector is 'true', the boot sector will be squashed. Else, it will be preserved.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='setFastpfIntensiveVerify'><td><font color=red></font> <b>setFastpfIntensiveVerify</b>&nbsp;&nbsp;&nbsp;(<font color=blue>true_or_false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Changes the behaviour of fastpf by enabling/disabling the RAM checking step just after writing each block into RAM.</font></td></tr>
+</table>
+<hr>
+<a name='ramrun'><h1>ramrun</h1></a>
+<li><a href='#ramrun'>ramrun</a></li>
+<li><a href='#ramrunXfer'>ramrunXfer</a></li>
+<li><a href='#uartRamrun'>uartRamrun</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='ramrun'><td><font color=red></font> <b>ramrun</b>&nbsp;&nbsp;&nbsp;(<font color=blue>filename,verify=false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Performs a ramrun of the file [filename] on the current opened device.     If verify is true, the downloaded code integrity will be checked before being launched.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='ramrunXfer'><td><font color=red></font> <b>ramrunXfer</b>&nbsp;&nbsp;&nbsp;(<font color=blue>connection,lodPackets,verify=false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Performs a ramrun of the 'lodPackets' on the device 'connection'. The 'lodPackets' are likely to have been loaded with the LOD_Load(...) function provided with the CoolHost module.     If verify is true, the downloaded code integrity will be checked before being launched.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='uartRamrun'><td><font color=red></font> <b>uartRamrun</b>&nbsp;&nbsp;&nbsp;(<font color=blue>uartComPortNum,filename,verify=false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Performs a ramrun of the file [filename] on the uart     device plugged on the COM port [uartComPortNum].     If verify is true, the downloaded code integrity will be checked before being launched.</font></td></tr>
+</table>
+<hr>
+<a name='reading'><h1>reading</h1></a>
+<li><a href='#Integer.R'>Integer.R</a></li>
+<li><a href='#Integer.R16'>Integer.R16</a></li>
+<li><a href='#Integer.R32'>Integer.R32</a></li>
+<li><a href='#Integer.R8'>Integer.R8</a></li>
+<li><a href='#Integer.RB'>Integer.RB</a></li>
+<li><a href='#Integer.RU'>Integer.RU</a></li>
+<li><a href='#Integer.r'>Integer.r</a></li>
+<li><a href='#Integer.r16'>Integer.r16</a></li>
+<li><a href='#Integer.r32'>Integer.r32</a></li>
+<li><a href='#Integer.r8'>Integer.r8</a></li>
+<li><a href='#Integer.rb'>Integer.rb</a></li>
+<li><a href='#Integer.rs'>Integer.rs</a></li>
+<li><a href='#Integer.ru'>Integer.ru</a></li>
+<li><a href='#R'>R</a></li>
+<li><a href='#R16'>R16</a></li>
+<li><a href='#R32'>R32</a></li>
+<li><a href='#R8'>R8</a></li>
+<li><a href='#RB'>RB</a></li>
+<li><a href='#RI'>RI</a></li>
+<li><a href='#RS'>RS</a></li>
+<li><a href='#dump'>dump</a></li>
+<li><a href='#dumpfast'>dumpfast</a></li>
+<li><a href='#dumpsuperfast'>dumpsuperfast</a></li>
+<li><a href='#elfdump'>elfdump</a></li>
+<li><a href='#fastdump'>fastdump</a></li>
+<li><a href='#flashDumpToLod'>flashDumpToLod</a></li>
+<li><a href='#flashDumpUsbToLod'>flashDumpUsbToLod</a></li>
+<li><a href='#r'>r</a></li>
+<li><a href='#r16'>r16</a></li>
+<li><a href='#r32'>r32</a></li>
+<li><a href='#r8'>r8</a></li>
+<li><a href='#rb'>rb</a></li>
+<li><a href='#ri'>ri</a></li>
+<li><a href='#rs'>rs</a></li>
+<li><a href='#verifybin'>verifybin</a></li>
+<li><a href='#verifylod'>verifylod</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='Integer.R'><td><font color=red>value</font> <b>Integer.R</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.R16'><td><font color=red>value</font> <b>Integer.R16</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.R32'><td><font color=red>value</font> <b>Integer.R32</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.R8'><td><font color=red>value</font> <b>Integer.R8</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.RB'><td><font color=red>[array_of_bytes]</font> <b>Integer.RB</b>&nbsp;&nbsp;&nbsp;(<font color=blue>bytestoread</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.RU'><td><font color=red>value</font> <b>Integer.RU</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.r'><td><font color=red>value</font> <b>Integer.r</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.r16'><td><font color=red>value</font> <b>Integer.r16</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.r32'><td><font color=red>value</font> <b>Integer.r32</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.r8'><td><font color=red>value</font> <b>Integer.r8</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.rb'><td><font color=red>[array_of_bytes]</font> <b>Integer.rb</b>&nbsp;&nbsp;&nbsp;(<font color=blue>bytestoread</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.rs'><td><font color=red>string</font> <b>Integer.rs</b>&nbsp;&nbsp;&nbsp;(<font color=blue>bytestoread</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.ru'><td><font color=red>value</font> <b>Integer.ru</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='R'><td><font color=red>val</font> <b>R</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 32-bit word at address 'addr'. Does not print the result.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='R16'><td><font color=red>val</font> <b>R16</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 16-bit word at address 'addr'. Does not print the result.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='R32'><td><font color=red>val</font> <b>R32</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 32-bit word at address 'addr'. Does not print the result.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='R8'><td><font color=red>val</font> <b>R8</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 16-bit word at address 'addr'. Does not print the result.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='RB'><td><font color=red>[array_of_bytes]</font> <b>RB</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,bytes_to_read</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a block of 'bytestoread' bytes at address 'addr'. Does not print the result.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='RI'><td><font color=red>val</font> <b>RI</b>&nbsp;&nbsp;&nbsp;(<font color=blue>innerreg</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads the value of the internal register 'innerreg'. Does not print the result.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='RS'><td><font color=red>string</font> <b>RS</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,bytes_to_read</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a string of max size 'bytestoread' bytes at address 'addr' Does not print the result.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='dump'><td><font color=red>bool</font> <b>dump</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename, address, nbwords</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Dumps 'nbwords' 32-bits words from memory, starting at address 'address', inside file 'str_filename'. If the filename ends with '.lod' the lod file format will be used, else the binary file format will be used.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='dumpfast'><td><font color=red>bool</font> <b>dumpfast</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename, address, nbwords</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Dumps 'nbwords' 32-bits words in batch read mode from memory, starting at address 'address', inside file 'str_filename'. If the filename ends with '.lod' the lod file format will be used, else the binary file format will be used.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='dumpsuperfast'><td><font color=red>bool</font> <b>dumpsuperfast</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename, address, nbwords</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Dumps 'nbwords' 32-bits words by library in batch read mode from memory, starting at address 'address', inside file 'str_filename'. If the filename ends with '.lod' the lod file format will be used, else the binary file format will be used.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='elfdump'><td><font color=red>bool</font> <b>elfdump</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename,xml_fileneme</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;dump memory according to the information in 'xml_fileneme' and build elf file 'str_filename' from the memory</font></td></tr>
+<tr bgcolor=#d0d0d0 id='fastdump'><td><font color=red>bool</font> <b>fastdump</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename, address, nbwords</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Dumps 'nbwords' 32-bits words from memory, starting at address 'address', inside file 'str_filename'. If the filename ends with '.lod' the lod file format will be used, else the binary file format will be used.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashDumpToLod'><td><font color=red>bool</font> <b>flashDumpToLod</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename, flashsize</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Dumps all flash data to lod files, the filename must ends with '.lod', flashsize=16 means using 16MB flash. and flashsize=32 means using 32MB flash</font></td></tr>
+<tr bgcolor=#d0d0d0 id='flashDumpUsbToLod'><td><font color=red>bool</font> <b>flashDumpUsbToLod</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename, flashsize</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Dumps all flash data to lod files, the filename must ends with '.lod', flashsize=16 means using 16MB flash. and flashsize=32 means using 32MB flash</font></td></tr>
+<tr bgcolor=#d0d0d0 id='r'><td><font color=red>val</font> <b>r</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 32-bit word at address 'addr'. Prints the result in hex.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='r16'><td><font color=red>val</font> <b>r16</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 16-bit word at address 'addr'. Prints the result in hex.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='r32'><td><font color=red>val</font> <b>r32</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 32-bit word at address 'addr'. Prints the result in hex.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='r8'><td><font color=red>val</font> <b>r8</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a 16-bit word at address 'addr'. Prints the result in hex.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='rb'><td><font color=red>[array_of_bytes]</font> <b>rb</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,bytes_to_read</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a block of 'bytestoread' bytes at address 'addr'. Prints the result in hex.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='ri'><td><font color=red>val</font> <b>ri</b>&nbsp;&nbsp;&nbsp;(<font color=blue>innerreg</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads the value of the internal register 'innerreg'. Prints the result in hex.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='rs'><td><font color=red>string</font> <b>rs</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,bytes_to_read</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Reads a string of max size 'bytestoread' bytes at address 'addr'. Prints the string.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='verifybin'><td><font color=red>bool</font> <b>verifybin</b>&nbsp;&nbsp;&nbsp;(<font color=blue>address,str_filename</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Verifies if the lod file 'str_filename' matches the memory</font></td></tr>
+<tr bgcolor=#d0d0d0 id='verifylod'><td><font color=red>bool</font> <b>verifylod</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Verifies if the lod file 'str_filename' matches the memory</font></td></tr>
+</table>
+<hr>
+<a name='targetxtor'><h1>targetxtor</h1></a>
+<li><a href='#TargetXtor.enterHostMonitor'>TargetXtor.enterHostMonitor</a></li>
+<li><a href='#TargetXtor.exitHostMonitor'>TargetXtor.exitHostMonitor</a></li>
+<li><a href='#TargetXtor.new'>TargetXtor.new</a></li>
+<li><a href='#TargetXtor.session'>TargetXtor.session</a></li>
+<li><a href='#TargetXtor.setExtdHandler'>TargetXtor.setExtdHandler</a></li>
+<li><a href='#TargetXtor.targetExecute'>TargetXtor.targetExecute</a></li>
+<li><a href='#TargetXtor.targetExecuteAndJump'>TargetXtor.targetExecuteAndJump</a></li>
+<li><a href='#TargetXtor.targetExecuteExtd'>TargetXtor.targetExecuteExtd</a></li>
+<li><a href='#TargetXtor.targetExecuteGeneric'>TargetXtor.targetExecuteGeneric</a></li>
+<li><a href='#TargetXtor.targetExecuteImmediate'>TargetXtor.targetExecuteImmediate</a></li>
+<li><a href='#remoteExecInIrq'>remoteExecInIrq</a></li>
+<li><a href='#remoteExecInIrq1'>remoteExecInIrq1</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='TargetXtor.enterHostMonitor'><td><font color=red>bool</font> <b>TargetXtor.enterHostMonitor</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Put the target in the            host monitor mode. That implies a reset of the target, which is             put in a state waiting for host command. 
+             The function returns TRUE if the monitor could be opened.             FALSE otherwise</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.exitHostMonitor'><td><font color=red></font> <b>TargetXtor.exitHostMonitor</b>&nbsp;&nbsp;&nbsp;(<font color=blue></font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;When the target is in the             host monitor mode, exit and carry on normal execution</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.new'><td><font color=red></font> <b>TargetXtor.new</b>&nbsp;&nbsp;&nbsp;(<font color=blue>connectionToCopy=$CURRENTCONNECTION</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Creates a TargetXtor object that will perform its operations on a dedicated connection which is a copy of connectionToCopy (usually $CURRENTCONNECTION.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.session'><td><font color=red></font> <b>TargetXtor.session</b>&nbsp;&nbsp;&nbsp;(<font color=blue>connection=$CURRENTCONNECTION</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;{|session| ... } Class method. Opens a session on the target executor, closes it at the end. |session| is the opened TargetXtor (yielded to perform things on the target executor in the block of code). Exemple: <i>TargetXtor.session{ |s| s.exitHostMonitor() }</i> will enter the host monitor, and immediately exit it. </font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.setExtdHandler'><td><font color=red></font> <b>TargetXtor.setExtdHandler</b>&nbsp;&nbsp;&nbsp;(<font color=blue>pc, (exectutionReturnedValue)</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Set the field in memory where the target 
+                    expects to find the PC for the extended remote
+                    execution handler.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.targetExecute'><td><font color=red>0, (exectutionReturnedValue)</font> <b>TargetXtor.targetExecute</b>&nbsp;&nbsp;&nbsp;(<font color=blue>pc, sp, param, timeOutStart(5), timeOutEnd(5)</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Execute when possible on the target the code at [pc] with the stack pointer set at
+                    [sp]. If [sp]=0, the current stack is used. One [parameter] is passed 
+                    to the called function. 
+
+                    [timeOutStart] defines the time out before 
+                    which the target should inform that it has started the execution
+                    of the specified code. [timeOutEnd] is the time after that event
+                    is received during we waits for the "end of execution"
+                    acknowledgement from the target. 
+
+                    Those timeout parameters are optionals.
+                    The status of the exection as well as the value returned
+                    by the function call are returned. 
+
+                    This function is for
+                    a code execution at the will of the target. That is immediately
+                    in the host monitor or on idle time if the target is 
+                    normally running.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.targetExecuteAndJump'><td><font color=red>0</font> <b>TargetXtor.targetExecuteAndJump</b>&nbsp;&nbsp;&nbsp;(<font color=blue>pc, sp, param, timeOutStart(5)</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Execute when possible on the target the code at [pc] with the stack pointer set at
+                    [sp]. If [sp]=0, the current stack is used. One [parameter] is passed 
+                    to the called function. This code is expected never to return. This is 
+                    useful to start a 'Ramrun' or launching the calibration stub.
+
+                    [timeOutStart] defines the time out before 
+                    which the target should inform that it has started the execution
+                    of the specified code.
+                    This function is for a code execution at the will of the target.
+                    That is immediately
+                    in the host monitor or on idle time if the target is 
+                    normally running.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.targetExecuteExtd'><td><font color=red>0, (exectutionReturnedValue)</font> <b>TargetXtor.targetExecuteExtd</b>&nbsp;&nbsp;&nbsp;(<font color=blue>cmd, field_0, field_1, field_2, field_3, timeOutStart(5),
+                 timeOutEnd(5), terminate(true), immediate(false)</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Send the [cmd] command to the extended command executor on the 
+                target. The four fields [field_0] ... [field_3] usage depend
+                on the extended monitor used. 
+
+                [timeOutStart] defines the time ut before 
+                which the target should inform that it has started the execution
+                of the specified command. [timeOutEnd] is the time after that event
+                is received during which we wait for the "end of execution"
+                acknowledgement from the target. 
+
+                [immediate] is used to select if the execution of the command
+                should interrupt the current processing on the target [true]
+                or wait for an oportunity to execute on idle or during a monitor
+                [false, default value]. 
+
+                The status of the exection is returned. 
+</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.targetExecuteGeneric'><td><font color=red>0, (exectutionReturnedValue)</font> <b>TargetXtor.targetExecuteGeneric</b>&nbsp;&nbsp;&nbsp;(<font color=blue>cmd, field_0, field_1, field_2, field_3,
+                     timeOutStart(5), timeOutEnd(5), terminate(true), immediate(false)</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;[This function is Private]. 
+
+                Send the [cmd] command to the host monitor. If this command is 
+                not supported by the standard handler, it will be passed to the
+                extended command executor on the target, if one has previously
+                been defined by TargetXtor.setExtdHandler, or ignored otherwise.
+
+                The four fields [field_0] ... [field_3] usage depend
+                on the extended monitor used, if an extended monitor is used. 
+
+                Otherwise, they are respectively interpreted by the standard 
+                handler as PC, SP, The Parameter and pointer to the returned value. 
+
+                [timeOutStart] defines the time out before 
+                which the target should inform that it has started the execution
+                of the specified command. 
+
+                If the terminate parameter is true, we expected the executed function
+                will end within a finished time, and [timeOutEnd] is the time after 
+                the execution has started
+                during which we wait for the "end of execution"
+                acknowledgement from the target. 
+
+                If the terminate parameter is false, we don't wait for the end of
+                execution event, as it will never come.
+                [immediate] is used to select if the execution of the command
+                should interrupt the current processing on the target [true]
+                or wait for an oportunity to execute on idle or during a monitor
+                [false, default value]. 
+
+                The status of the exection is returned. 
+</font></td></tr>
+<tr bgcolor=#d0d0d0 id='TargetXtor.targetExecuteImmediate'><td><font color=red>0, (exectutionReturnedValue)</font> <b>TargetXtor.targetExecuteImmediate</b>&nbsp;&nbsp;&nbsp;(<font color=blue>pc, sp, param, timeOutStart(5), timeOutEnd(5)</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Execute immediatlely on the target the code at [pc] with the stack pointer set at
+                [sp]. If [sp]=0, the current stack is used. One [parameter] is passed 
+                to the called function. 
+
+                [timeOutStart] defines the time out before 
+                which the target should inform that it has started the execution
+                of the specified code. [timeOutEnd] is the time after that event
+                is received during we waits for the "end of execution"
+                acknowledgement from the target. 
+
+                The status of the exection as well as the value returned
+                by the function call are returned. 
+
+                This function is for executing code immediately.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='remoteExecInIrq'><td><font color=red></font> <b>remoteExecInIrq</b>&nbsp;&nbsp;&nbsp;(<font color=blue>pc, sp, param</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Execute a piece of codes with stack pointer and one parameter specified. Current stack will be used if stack pointer is 0.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='remoteExecInIrq1'><td><font color=red></font> <b>remoteExecInIrq1</b>&nbsp;&nbsp;&nbsp;(<font color=blue>pc</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Execute a piece of codes with current stack. No parameter is passed.</font></td></tr>
+</table>
+<hr>
+<a name='writing'><h1>writing</h1></a>
+<li><a href='#Integer.w'>Integer.w</a></li>
+<li><a href='#Integer.w16'>Integer.w16</a></li>
+<li><a href='#Integer.w32'>Integer.w32</a></li>
+<li><a href='#Integer.w8'>Integer.w8</a></li>
+<li><a href='#Integer.wb'>Integer.wb</a></li>
+<li><a href='#ld'>ld</a></li>
+<li><a href='#ldbin'>ldbin</a></li>
+<li><a href='#ldbinbcpu'>ldbinbcpu</a></li>
+<li><a href='#ldbinxcpu'>ldbinxcpu</a></li>
+<li><a href='#w'>w</a></li>
+<li><a href='#w16'>w16</a></li>
+<li><a href='#w32'>w32</a></li>
+<li><a href='#w8'>w8</a></li>
+<li><a href='#wb'>wb</a></li>
+<li><a href='#wi'>wi</a></li>
+<br><table>
+<tr bgcolor=#d0d0d0 id='Integer.w'><td><font color=red></font> <b>Integer.w</b>&nbsp;&nbsp;&nbsp;(<font color=blue>val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.w16'><td><font color=red></font> <b>Integer.w16</b>&nbsp;&nbsp;&nbsp;(<font color=blue>val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.w32'><td><font color=red></font> <b>Integer.w32</b>&nbsp;&nbsp;&nbsp;(<font color=blue>val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.w8'><td><font color=red></font> <b>Integer.w8</b>&nbsp;&nbsp;&nbsp;(<font color=blue>val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='Integer.wb'><td><font color=red></font> <b>Integer.wb</b>&nbsp;&nbsp;&nbsp;(<font color=blue>[array_of_bytes]</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;This method is provided for convenience. See corresponding function (the Integer value is the address where this operation is performed)</font></td></tr>
+<tr bgcolor=#d0d0d0 id='ld'><td><font color=red>bool</font> <b>ld</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename,bool_verify=false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Loads a lod file and verifies the loading operation if bool_verify==true</font></td></tr>
+<tr bgcolor=#d0d0d0 id='ldbin'><td><font color=red>bool</font> <b>ldbin</b>&nbsp;&nbsp;&nbsp;(<font color=blue>address,str_filename,bool_verify=false</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Loads a binary file and verifies the loading operation if bool_verify==true. 
+for example 8809 and 8809e ldbin 0xa1e00000,xcpu.bin  ldbin 0xa1e80000, bcpu.bin </font></td></tr>
+<tr bgcolor=#d0d0d0 id='ldbinbcpu'><td><font color=red>bool</font> <b>ldbinbcpu</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;ldbin 0xa1e80000,bcpu.bin </font></td></tr>
+<tr bgcolor=#d0d0d0 id='ldbinxcpu'><td><font color=red>bool</font> <b>ldbinxcpu</b>&nbsp;&nbsp;&nbsp;(<font color=blue>str_filename</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;ldbin 0xa1e00000,xcpu.bin </font></td></tr>
+<tr bgcolor=#d0d0d0 id='w'><td><font color=red></font> <b>w</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Writes a 32-bit word at address 'addr'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='w16'><td><font color=red></font> <b>w16</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Writes a 16-bit word at address 'addr'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='w32'><td><font color=red></font> <b>w32</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Writes a 32-bit word at address 'addr'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='w8'><td><font color=red></font> <b>w8</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Writes a 8-bit word at address 'addr'.</font></td></tr>
+<tr bgcolor=#d0d0d0 id='wb'><td><font color=red></font> <b>wb</b>&nbsp;&nbsp;&nbsp;(<font color=blue>addr,[array_of_bytes]</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Writes a block of bytes (each element of the array is a byte) at address addr.'</font></td></tr>
+<tr bgcolor=#d0d0d0 id='wi'><td><font color=red></font> <b>wi</b>&nbsp;&nbsp;&nbsp;(<font color=blue>innerreg,val</font>)</td></tr><tr bgcolor=#f0f0f0><td><font color=darkgreen>&nbsp;&nbsp;&nbsp;Writes a 8-bit word in the internal register 'innerreg'.</font></td></tr>
+</table>

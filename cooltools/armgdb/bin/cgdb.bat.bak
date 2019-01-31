@@ -1,0 +1,4 @@
+@echo off
+set TERMINFO=.\terminfo
+set TERM=cygwin
+cgdb.exe %1 %2 %3 %4 %5

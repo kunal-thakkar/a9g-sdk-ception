@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<profile>
+<softDir>
+chipgen/Modem2G</softDir>
+<project>
+Granite</project>
+<mainScript>
+CoolWatcher/cwuser.rb</mainScript>
+<hardXmd>
+chipgen/Modem2G/toolpool/map/Granite/granite_hard.xml</hardXmd>
+<softXmd>
+chipgen/Modem2G/toolpool/map/Granite/granite_soft_pkg.xmd</softXmd>
+</profile>
