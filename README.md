@@ -1,23 +1,16 @@
-CSDTK 4 使用说明
+
+CSDTK 4 Instructions for use
 ================
+CSDTK 4 is a compilation environment based on pure Windows applications and is no longer based on cygwin. Therefore, there will be better compatibility with different versions of Windows, and it can be easily integrated into various other development environments.
+CSDTK 4 provides a compression package that can be decompressed for use anywhere (here C:\CSDTK4 is an example).
+CSDTK 4 only contains tools needed for compilation, not including svn, gitversion management software.
+CSDTK 4 and the path where the project is located should not contain special characters such as spaces and Chinese characters.
+In the previous code could not be compiled under CSDTK 4, need to incorporate new code changes, as long as compilerules.mkwell as
+ usrgen, resgenrelated changes.
 
-CSDTK 4是基于纯Windows应用的编译环境，不再基于cygwin。因此对不同的Windows版本会有更好
-的兼容性，而且可以很方便地集成到其他各种开发环境中。
-
-CSDTK 4提供的是一个压缩包，可以解压到任何地方使用（以下以C:\CSDTK4为例）。
-
-CSDTK 4只包含编译需要的工具，不包含`svn, git`等版本管理软件。
-
-CSDTK 4以及工程所在的路径不要包含空格，中文字符等特殊字符。
-
-以前的代码可能不能在CSDTK 4下编译，需要合并新代码中的改动，只要是`compilerules.mk`以及
-`usrgen, resgen`相关的改动。
-
-在cmd.exe下使用CSDTK 4
+Use CSDTK 4 under cmd.exe
 ---------------------
-
-编译BAT文件的示例：
-
+Example of compiling a BAT file:
 ```
 call C:\CSDTK4\CSDTKvars.bat
 
@@ -26,71 +19,59 @@ set PATH=D:\projects\project\soft\env\utils;D:\projects\project\soft\env\win32;%
 make -r -j4 CT_TARGET=target ......
 ```
 
-`C:\CSDTK4\CSDTKvars.bat`会设置编译所需的环境变量，之后调用`make`即可。由于`work, ctmake`
-需要bash环境，在cmd.exe的环境中无法使用。
+`C:\CSDTK4\CSDTKvars.bat` The environment variables required for compilation will be set and then called make. Due to the work, ctmake
+need for a bash environment, it is not available in the cmd.exe environment.
 
-`SOFT_WORKDIR`必须使用`/`，不能用`\`。
+`SOFT_WORKDIR` Must be used /, cannot be used \.
 
-在git-bash下使用CSDTK 4
+Use CSDTK 4 under git-bash
 ----------------------
 
-在`$HOME/.bashrc`下加上：
-
+In $HOME/.bashrccase plus:
 ```
 export PROJ_ROOT=$(cygpath -au d:/projects) # 或者其他任意路径
 source $(cygpath -au c:/CSDTK4/CSDTKvars.sh)
 ```
 
-使用时和之前一样：
-
+Use the same as before:
 ```
 $ work <project>
 $ . env/launch.sh
 $ ctmake ......
 ```
 
-由于`C:\CSDTK4\make`下的一些应用和git-bash会有冲突，因此不会加到PATH里去。
+Since C:\CSDTK4\makesome of the applications below will conflict with git-bash, they will not be added to the PATH.
+To use ctmaketo compile, don't use it make.
+In addition to the git command itself, CSDTK 4 does not rely on other applications in git-bash, so upgrading git-bash does not affect compilation. It is recommended to install the latest version of git-bash.
 
-要使用`ctmake`来编译，不要使用`make`。
-
-除了git命令本身，CSDTK 4不依赖git-bash中的其他应用，因此升级git-bash不会影响编译。
-建议安装最新版的git-bash。
-
-在msys2下使用CSDTK 4
+Use CSDTK 4 under msys2
 ----------------------
 
-和在git-bash下的使用方法一样。
+Same as using under git-bash.
 
-在cygwin下使用CSDTK 4
+Use CSDTK 4 under cygwin
 ----------------------
 
-在`$HOME/.bashrc`下加上：
-
+In $HOME/.bashrccase plus:
 ```
 export PROJ_ROOT=$(cygpath -au d:/projects) # 或者其他任意路径
 source $(cygpath -au c:/CSDTK4/CSDTKvars.sh)
 ```
 
-使用时和之前一样：
-
+Use the same as before:
 ```
 $ work <project>
 $ . env/launch.sh
 $ ctmake ......
 ```
 
-由于`C:\CSDTK4\make`下的一些应用和cygwin会有冲突，因此不会加到PATH里去。
+Since `C:\CSDTK4\makesome` of the applications below will conflict with cygwin, they will not be added to the PATH.
+To use `ctmaketo` compile, don't use it `make`. Cygwin comes with it that `make` doesn't compile properly.
+In addition to the git, svn commands, CSDTK 4 does not depend on other applications in cygwin, so upgrading cygwin will not affect compilation. And can work under both cygwin and cygwin64. It is recommended to update cygwin regularly and use cygwin64 on 64-bit Windows operating systems.
 
-要使用`ctmake`来编译，不要使用`make`。cygwin自带的`make`不能正常编译。
-
-除了git，svn命令，CSDTK 4不依赖cygwin中的其他应用，因此升级cygwin不会影响编译。
-而且在cygwin和cygwin64下都可以工作。建议定期更新cygwin，而且在64位的Windows
-操作系统上使用cygwin64。
-
-环境变量说明
+Environmental variable description
 ----------
 
-`CSDTKVER`：为了兼容不同版本的CSDTK，在CSDTK 4下应该设置为`4`。
+`CSDTKVER`: In order to be compatible with different versions of CSDTK, it should be set to under CSDTK 4 `4`.
 
-`CSDTK4INSTALLDIR`：CSDTK 4的路径，例如`C:\CSDTK4`。
-
+`CSDTK4INSTALLDIR`: The path to CSDTK 4, for example `C:\CSDTK4`.
